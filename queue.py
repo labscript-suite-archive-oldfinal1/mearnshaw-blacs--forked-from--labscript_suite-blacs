@@ -479,8 +479,8 @@ class QueueManager(object):
                             logger.error('%s has an error condition, aborting run' % name)
                             error_condition = True
                             break
-                    except Exception as e:
-                        logger.error('Exception while transitioning %s to buffered mode. Exception was: %s'%(name,str(e)))
+                    except KeyError as e:
+                        logger.error('Exception while transitioning %s to buffered mode. KeyError: %s.'%(name,str(e)))
                         error_condition = True
                         break
                         

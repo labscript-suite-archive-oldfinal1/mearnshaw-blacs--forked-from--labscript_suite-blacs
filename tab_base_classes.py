@@ -26,12 +26,14 @@ from types import GeneratorType
 import zprocess
 #import labscript_utils.excepthook
 
-if 'PySide' in sys.modules.copy():
+if 'PySide' in sys.modules:
     from PySide.QtCore import *
     from PySide.QtGui import *
 else:
-    from PyQt4.QtCore import *
-    from PyQt4.QtGui import *
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+   # from PyQt4.QtCore import *
+   # from PyQt4.QtGui import *
 
 from qtutils import *
 

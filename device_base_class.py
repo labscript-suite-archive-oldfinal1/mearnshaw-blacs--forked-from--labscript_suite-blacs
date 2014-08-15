@@ -160,7 +160,11 @@ class DeviceTab(Tab):
     def _create_DO_object(self,parent_device,BLACS_hardware_name,labscript_hardware_name,properties):
         # Find the connection name
         device = self.get_child_from_connection_table(parent_device,labscript_hardware_name)
-        connection_name = device.name if device else '-'
+
+        try:
+            connection_name = device.name
+        except AttributeError:
+            connection_name = '-'
         
         # Instantiate the DO object
         return DO(BLACS_hardware_name, connection_name, self.device_name, self.program_device, self.settings)
@@ -173,7 +177,11 @@ class DeviceTab(Tab):
     def _create_AO_object(self,parent_device,BLACS_hardware_name,labscript_hardware_name,properties):
         # Find the connection name
         device = self.get_child_from_connection_table(parent_device,labscript_hardware_name)
-        connection_name = device.name if device else '-'
+
+        try:
+            connection_name = device.name
+        except AttributeError:
+            connection_name = '-'
         
         # Get the calibration details
         calib_class = None
@@ -190,7 +198,12 @@ class DeviceTab(Tab):
     def create_dds_outputs(self,dds_properties):
         for hardware_name,properties in dds_properties.items():
             device = self.get_child_from_connection_table(self.device_name,hardware_name)
-            connection_name = device.name if device else '-'
+            print "'{}'".format(device)
+
+            try:
+                connection_name = device.name
+            except AttributeError:
+                connection_name = '-'
         
             subchnl_name_list = ['freq','amp','phase']
             sub_chnls = {}
@@ -258,8 +271,7 @@ class DeviceTab(Tab):
         widget = QWidget()
         toolpalettegroup = ToolPaletteGroup(widget)
         for arg in args:
-            # A default sort algorithm that just returns the object (this is equivalent to not specifying the sort gorithm)
-            sort_algorithm = lambda x: x
+            sort_algorithm = None
             if type(arg) == type(()) and len(arg) > 1 and type(arg[1]) == type({}) and len(arg[1].keys()) > 0:
                 # we have a name, use it!
                 name = arg[0]
@@ -607,7 +619,7 @@ class DeviceTab(Tab):
             if not transition_success:
                 success = False
                 # don't break here, so that as much of the device is returned to normal
-        
+
         # Update the GUI with the final values of the run:
         for channel, value in self._final_values.items():
             if channel in self._AO:

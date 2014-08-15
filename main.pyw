@@ -183,7 +183,6 @@ import plugins
 class BLACSWindow(QMainWindow):
        
     def closeEvent(self, event):
-        #print 'aaaaa'
         if self.blacs.exit_complete:
             event.accept()
             if self.blacs._relaunch:
@@ -254,6 +253,7 @@ class BLACS(object):
         # Find which devices are connected to BLACS, and what their labscript class names are:
         logger.info('finding connected devices in connection table')
         self.attached_devices = self.connection_table.get_attached_devices()
+        logger.info(self.attached_devices)
         
         # Store the panes in a dictionary for easy access
         self.panes['tab_top_vertical_splitter'] = self.ui.tab_top_vertical_splitter
