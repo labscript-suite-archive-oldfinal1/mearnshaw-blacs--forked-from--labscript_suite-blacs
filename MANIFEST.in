@@ -1,1 +1,4 @@
 include blacs/main.pyw
+include blacs/BLACS.ico
+include blacs/BLACS.svg
+recursive-include blacs/*.ui
