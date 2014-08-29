@@ -20,11 +20,11 @@ import time
 import sys
 
 if 'PySide' in sys.modules.copy():
-    from PySide.QtCore import *
-    from PySide.QtGui import *
+    from PySide.QtCore import Qt
+    from PySide.QtGui import QTreeView, QStandardItemModel, QStandardItem, QItemSelectionModel
 else:
-    from PyQt4.QtCore import *
-    from PyQt4.QtGui import *
+    from PyQt4.QtCore import Qt
+    from PyQt4.QtGui import QTreeView, QStandardItemModel, QStandardItem, QItemSelectionModel
 
 import zprocess.locking, labscript_utils.h5_lock, h5py
 zprocess.locking.set_client_process_name('BLACS.queuemanager')

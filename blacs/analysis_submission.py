@@ -16,15 +16,7 @@ import os
 import Queue
 import threading
 import time
-import sys
 
-if 'PySide' in sys.modules.copy():
-    from PySide.QtCore import *
-    from PySide.QtGui import *
-else:
-    from PyQt4.QtCore import *
-    from PyQt4.QtGui import *
-    
 from qtutils import *
 from zprocess import zmq_get
 import labscript_utils.shared_drive

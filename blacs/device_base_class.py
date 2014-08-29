@@ -16,12 +16,8 @@ import sys
 import os
 import time
 
-if 'PySide' in sys.modules.copy():
-    from PySide.QtCore import *
-    from PySide.QtGui import *
-else:
-    from PyQt4.QtCore import *
-    from PyQt4.QtGui import *
+from PySide.QtCore import QTimer
+from PySide.QtGui import QWidget, QSizePolicy, QSpacerItem, QPushButton, QVBoxLayout, QSizePolicy, QSpacerItem, QPushButton, QVBoxLayout
     
 import labscript_utils.excepthook
 from qtutils import UiLoader

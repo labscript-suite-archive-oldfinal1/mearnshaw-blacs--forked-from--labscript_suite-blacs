@@ -27,13 +27,11 @@ import zprocess
 #import labscript_utils.excepthook
 
 if 'PySide' in sys.modules:
-    from PySide.QtCore import *
-    from PySide.QtGui import *
+    from PySide.QtCore import QTimer
+    from PySide.QtGui import QVBoxLayout, QWidget, QColor, QPushButton
 else:
-    from PySide.QtCore import *
-    from PySide.QtGui import *
-   # from PyQt4.QtCore import *
-   # from PyQt4.QtGui import *
+    from PySide.QtCore import QTimer
+    from PySide.QtGui import QVBoxLayout, QWidget, QColor, QPushButton
 
 from qtutils import *
 

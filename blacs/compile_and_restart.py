@@ -17,11 +17,11 @@ import subprocess
 from Queue import Queue
 
 if 'PySide' in sys.modules.copy():
-    from PySide.QtCore import *
-    from PySide.QtGui import *
+    from PySide.QtCore import QTimer
+    from PySide.QtGui import QWidget, QSizePolicy, QSpacerItem, QPushButton, QVBoxLayout
 else:
-    from PyQt4.QtCore import *
-    from PyQt4.QtGui import *
+    from PySide.QtCore import QTimer
+    from PySide.QtGui import QWidget, QSizePolicy, QSpacerItem, QPushButton, QVBoxLayout
 
 from qtutils import *
 import runmanager

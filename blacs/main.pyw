@@ -30,24 +30,9 @@ except:
     print 'You should specify "--delay x" where x is an integer'
 
     
-lower_argv = [s.lower() for s in sys.argv]
-if 'pyside' in lower_argv:
-    # Import Qt
-    from PySide.QtCore import *
-    from PySide.QtGui import *
-    # from PySide.QtUiTools import QUiLoader
-elif 'pyqt' in lower_argv:
-    from PyQt4.QtCore import *
-    from PyQt4.QtGui import *
-else:
-    try:
-        from PyQt4.QtCore import *
-        from PyQt4.QtGui import *
-    except Exception:
-        from PySide.QtCore import *
-        from PySide.QtGui import *
-    
-    
+from PySide.QtCore import QTimer
+from PySide.QtGui import QWidget, QSizePolicy, QSpacerItem, QPushButton, QVBoxLayout, QMainWindow, QApplication
+
 class VersionException(Exception):
     pass
     

@@ -15,12 +15,8 @@ import logging
 import math
 import sys
 
-if 'PySide' in sys.modules.copy():
-    from PySide.QtCore import *
-    from PySide.QtGui import *
-else:
-    from PyQt4.QtCore import *
-    from PyQt4.QtGui import *
+from PySide.QtCore import QTimer
+from PySide.QtGui import QWidget, QSizePolicy, QSpacerItem, QPushButton, QVBoxLayout, QStandardItemModel, QStandardItem
 
 from labscript_utils.qtwidgets.analogoutput import AnalogOutput
 from labscript_utils.qtwidgets.digitaloutput import DigitalOutput

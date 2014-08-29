@@ -17,11 +17,9 @@ import logging
 import sys
 
 if 'PySide' in sys.modules.copy():
-    from PySide.QtCore import *
-    from PySide.QtGui import *
+    from PySide.QtGui import QMessageBox
 else:
-    from PyQt4.QtCore import *
-    from PyQt4.QtGui import *
+    from PySide.QtGui import QMessageBox
 
 import labscript_utils.excepthook
 import numpy
