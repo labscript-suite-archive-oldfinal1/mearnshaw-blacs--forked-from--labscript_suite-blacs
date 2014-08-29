@@ -31,7 +31,7 @@ except:
 
     
 from PySide.QtCore import QTimer
-from PySide.QtGui import QWidget, QSizePolicy, QSpacerItem, QPushButton, QVBoxLayout, QMainWindow, QApplication
+from PySide.QtGui import QWidget, QSizePolicy, QSpacerItem, QPushButton, QVBoxLayout, QMainWindow, QApplication, QFileDialog
 
 class VersionException(Exception):
     pass
